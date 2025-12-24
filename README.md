@@ -75,7 +75,7 @@ https://github.com/tarykkk/DevOps/tree/main/notes-application-project
 Посилання на виконану роботу:
 https://github.com/tarykkk/DevOps/tree/main/myweblog
 
-### [Практична робота 6 — BlogSite (Django Blog Application)]()
+### [Практична робота 6 — BlogSite (Django Blog Application)](https://github.com/tarykkk/DevOps/blob/main/blogsite/README.md)
 
 Повнофункціональний блог, розроблений на Django framework у межах практичної роботи з дисципліни DevOps.
 
@@ -93,7 +93,7 @@ https://github.com/tarykkk/DevOps/tree/main/myweblog
 - Сучасний адаптивний дизайн
 
 Посилання на виконану роботу:
-https://github.com/tarykkk/DevOps/tree/main/blogsite
+https://github.com/tarykkk/DevOps/blob/main/blogsite
 
 
 ### [Практична робота 7]()
