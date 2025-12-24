@@ -1,5 +1,7 @@
 # CLI Tools Project
 
+[Перейти до репозиторію](https://github.com/tarykkk/DevOps/tree/main/cli-tools-project)
+
 Набір CLI-інструментів на Python, що демонструє три різні підходи до створення командних інтерфейсів:
 1. Базовий запуск через `sys.argv`
 2. Використання бібліотеки `click`
