@@ -73,7 +73,7 @@ class Feedback(models.Model):
         related_name='feedbacks',
         verbose_name='Стаття'
     )
-    author_name = models.CharField('Ім\\'я автора', max_length=100)
+    author_name = models.CharField('Ім\'я автора', max_length=100)
     author_email = models.EmailField('Email автора')
     content = models.TextField('Текст коментаря')
     created_at = models.DateTimeField('Дата створення', auto_now_add=True)
@@ -90,4 +90,4 @@ class Feedback(models.Model):
         ]
     
     def __str__(self):
-        return f 'Коментар від {self.author_name} до {self.article.title}'
+        return f'Коментар від {self.author_name} до {self.article.title}'
