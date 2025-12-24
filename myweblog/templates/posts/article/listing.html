@@ -1,0 +1,26 @@
+{% extends "posts/layout.html" %}
+
+{% block page_title %}Головна сторінка блогу{% endblock %}
+
+{% block main_content %}
+<h1 class="page-title">Останні статті</h1>
+
+{% for article in articles %}
+    <article class="article-card">
+        <h2 class="article-title">
+            <a href="{% url 'posts:article_details' article.id %}">
+                {{ article.heading }}
+            </a>
+        </h2>
+        <div class="article-meta">
+            Опубліковано {{ article.publication_date|date:"d E Y" }} | Автор: {{ article.writer }}
+        </div>
+        <div class="article-preview">
+            {{ article.content|truncatewords:35|linebreaks }}
+        </div>
+    </article>
+{% empty %}
+    <p>Статей поки що немає.</p>
+{% endfor %}
+
+{% endblock %}
