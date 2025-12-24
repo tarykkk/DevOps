@@ -1,0 +1,16 @@
+{% extends "posts/layout.html" %}
+
+{% block page_title %}{{ article.heading }}{% endblock %}
+
+{% block main_content %}
+<article>
+    <h1 class="page-title">{{ article.heading }}</h1>
+    <div class="article-meta">
+        Опубліковано {{ article.publication_date|date:"d E Y, H:i" }} | Автор: {{ article.writer }}
+    </div>
+    <div class="article-full-content">
+        {{ article.content|linebreaks }}
+    </div>
+    <a href="{% url 'posts:articles_list' %}" class="back-link">← Повернутися до списку статей</a>
+</article>
+{% endblock %}
