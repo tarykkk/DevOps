@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block main_content %}
+{% if feedback %}
+    <div class="alert-success">
+        <h2>✅ Дякуємо за ваш коментар!</h2>
+        <p>Ваш відгук успішно додано до статті <strong>"{{ article.title }}"</strong>.</p>
+        <p>
+            <a href="{{ article.get_absolute_url }}" class="action-btn">
+                ← Повернутися до статті
+            </a>
+        </p>
+    </div>
+{% else %}
+    <div style="background: #fee2e2; border: 1px solid var(--danger); color: #991b1b; padding: 20px; border-radius: 8px;">
+        <h2>❌ Помилка при додаванні коментаря</h2>
+        <p>Будь ласка, перевірте правильність заповнення форми.</p>
+        
+        {% if form.errors %}
+            <ul style="margin-top: 15px;">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li>{{ field }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <p style="margin-top: 20px;">
+            <a href="{{ article.get_absolute_url }}" class="action-btn">
+                ← Повернутися до статті
+            </a>
+        </p>
+    </div>
+{% endif %}
+{% endblock %}

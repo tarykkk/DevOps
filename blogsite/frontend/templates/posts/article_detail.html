@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ article.title }}{% endblock %}
+
+{% block meta_description %}{{ article.excerpt|default:article.content|truncatewords:20 }}{% endblock %}
+
+{% block main_content %}
+<article>
+    <h1>{{ article.title }}</h1>
+    
+    <div class="meta-info">
+        📅 Опубліковано <strong>{{ article.published_at|date:"d F Y о H:i" }}</strong><br>
+        ✍️ Автор: <strong>{{ article.author.get_full_name|default:article.author.username }}</strong>
+    </div>
+    
+    <div class="article-content">
+        {{ article.content|linebreaks }}
+    </div>
+    
+    <div class="action-bar">
+        <a href="{% url 'posts:share_article' article.id %}" class="action-btn">
+            📧 Поділитися статтею
+        </a>
+        <a href="{% url 'posts:article_list' %}" class="action-btn">
+            ← Всі статті
+        </a>
+    </div>
+</article>
+
+<section class="feedback-section">
+    <div class="feedback-header">
+        <h2>💬 Коментарі ({{ feedbacks.count }})</h2>
+    </div>
+
+    {% if feedbacks %}
+        {% for feedback in feedbacks %}
+            <div class="feedback-item">
+                <div class="feedback-meta">
+                    <strong>{{ feedback.author_name }}</strong> • 
+                    {{ feedback.created_at|date:"d F Y, H:i" }}
+                </div>
+                <div class="feedback-content">
+                    {{ feedback.content|linebreaks }}
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-feedback">
+            Коментарів поки що немає. Будьте першим, хто залишить відгук!
+        </p>
+    {% endif %}
+
+    <div class="form-wrapper">
+        <h3>Залишити коментар</h3>
+        <form action="{% url 'posts:submit_feedback' article.id %}" method="post">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                {{ feedback_form.author_name.label_tag }}
+                {{ feedback_form.author_name }}
+            </div>
+            
+            <div class="form-group">
+                {{ feedback_form.author_email.label_tag }}
+                {{ feedback_form.author_email }}
+            </div>
+            
+            <div class="form-group">
+                {{ feedback_form.content.label_tag }}
+                {{ feedback_form.content }}
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                Опублікувати коментар
+            </button>
+        </form>
+    </div>
+</section>
+{% endblock %}

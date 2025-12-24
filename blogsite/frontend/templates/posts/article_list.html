@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block main_content %}
+<h1>📝 Останні публікації</h1>
+
+{% for article in articles %}
+    <article class="article-item">
+        <h2>
+            <a href="{{ article.get_absolute_url }}">
+                {{ article.title }}
+            </a>
+        </h2>
+        
+        <div class="meta-info">
+            Опубліковано <strong>{{ article.published_at|date:"d E Y" }}</strong> 
+            автором <strong>{{ article.author.get_full_name|default:article.author.username }}</strong>
+        </div>
+        
+        <div class="article-excerpt">
+            {{ article.content|truncatewords:40|linebreaks }}
+        </div>
+    </article>
+{% empty %}
+    <p class="no-feedback">Статті ще не опубліковані.</p>
+{% endfor %}
+
+{% if page_obj.has_other_pages %}
+<div class="pagination-wrapper">
+    <nav class="pagination-controls">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="pagination-btn">
+                ← Попередня
+            </a>
+        {% else %}
+            <span></span>
+        {% endif %}
+        
+        <span class="page-indicator">
+            Сторінка {{ page_obj.number }} з {{ page_obj.paginator.num_pages }}
+        </span>
+        
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn">
+                Наступна →
+            </a>
+        {% endif %}
+    </nav>
+</div>
+{% endif %}
+{% endblock %}

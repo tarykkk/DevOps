@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+{% block main_content %}
+{% if email_sent %}
+    <div class="alert-success">
+        <h2>✅ Email успішно відправлено!</h2>
+        <p>
+            Статтю <strong>"{{ article.title }}"</strong> було надіслано на адресу 
+            <strong>{{ form.cleaned_data.recipient_email }}</strong>
+        </p>
+        <p>
+            <a href="{{ article.get_absolute_url }}" class="action-btn">
+                ← Повернутися до статті
+            </a>
+        </p>
+    </div>
+{% else %}
+    <h1>📧 Поділитися статтею</h1>
+    <p>Рекомендуйте статтю <strong>"{{ article.title }}"</strong> своїм друзям електронною поштою.</p>
+    
+    <div class="form-wrapper">
+        <form method="post">
+            {% csrf_token %}
+            
+            {% if form.non_field_errors %}
+                <div style="color: var(--danger); margin-bottom: 20px;">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+            
+            <div class="form-group">
+                {{ form.sender_name.label_tag }}
+                {{ form.sender_name }}
+                {% if form.sender_name.errors %}
+                    <span style="color: var(--danger); font-size: 0.875rem;">
+                        {{ form.sender_name.errors.0 }}
+                    </span>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.sender_email.label_tag }}
+                {{ form.sender_email }}
+                {% if form.sender_email.errors %}
+                    <span style="color: var(--danger); font-size: 0.875rem;">
+                        {{ form.sender_email.errors.0 }}
+                    </span>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.recipient_email.label_tag }}
+                {{ form.recipient_email }}
+                {% if form.recipient_email.errors %}
+                    <span style="color: var(--danger); font-size: 0.875rem;">
+                        {{ form.recipient_email.errors.0 }}
+                    </span>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.message.label_tag }}
+                {{ form.message }}
+                {% if form.message.errors %}
+                    <span style="color: var(--danger); font-size: 0.875rem;">
+                        {{ form.message.errors.0 }}
+                    </span>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                Відправити email
+            </button>
+        </form>
+    </div>
+{% endif %}
+{% endblock %}
