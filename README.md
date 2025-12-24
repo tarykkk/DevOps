@@ -57,3 +57,24 @@ https://github.com/tarykkk/DevOps/tree/main/cli-tools-project
 
 Посилання на виконану роботу:  
 https://github.com/tarykkk/DevOps/tree/main/notes-application-project
+
+##  Практичні роботи
+
+### [Практична робота 5 — MyWebLog (Django Blog Application)](https://github.com/tarykkk/DevOps/blob/main/myweblog/README.md)
+
+Простий блог на Django для практичної роботи.
+
+**Реалізовано:**
+- Створення Django-проєкту та додатку posts
+- Моделі для збереження статей
+- HTML-шаблони для відображення статей на сторінках блогу
+- Статичні файли для стилізації блогу
+- Команди для створення тестових даних (populate_articles)
+- Налаштовано доступ до адмін-панелі
+
+Посилання на виконану роботу:
+https://github.com/tarykkk/DevOps/tree/main/myweblog
+
+### [Практична робота 6]()
+
+### [Практична робота 7]()
