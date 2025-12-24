@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %}{% endblock %}</title>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            {% block main_content %}{% endblock %}
+        </main>
+        <aside class="sidebar">
+            <h2 class="sidebar-title">Мій Блог</h2>
+            <p class="sidebar-text">
+                Ласкаво просимо до мого блогу про веб-розробку! 
+                Тут я ділюся своїм досвідом та знаннями про Django, 
+                Python та інші цікаві технології.
+            </p>
+        </aside>
+    </div>
+</body>
+</html>
