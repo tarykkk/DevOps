@@ -24,3 +24,16 @@
 
  Посилання на виконану роботу:  
  https://github.com/tarykkk/DevOps/tree/main/project
+
+### [Самостійна робота №3 — CLI Tools](https://github.com/tarykkk/DevOps/tree/main/cli-tools-project/README.md)
+
+**Реалізовано:**
+
+- Розробка простих CLI‑утиліт на Python  
+- Основний файл: cli_main.py  
+- Команди та логіка: tool_commands.py, utils.py  
+- Базові тести для перевірки CLI  
+- Документація та приклади використання команд  
+
+Посилання на виконану роботу:  
+https://github.com/tarykkk/DevOps/tree/main/cli-tools-project
