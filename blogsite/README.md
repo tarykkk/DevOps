@@ -1,5 +1,7 @@
 # BlogSite - Сучасний Django Blog
 
+[Перейти до репозиторію](https://github.com/tarykkk/DevOps/tree/main/blogsite)
+
 Повнофункціональний блог створений на Django framework як частина практичної роботи з DevOps.
 
 ##  Основні можливості
