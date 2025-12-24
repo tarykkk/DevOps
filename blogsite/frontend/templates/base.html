@@ -20,3 +20,25 @@
                 <div class="sidebar-widget">
                     <h2>🚀 BlogSite</h2>
                     <p>Сучасний блог про веб-розробку, технології та програмування</p
+                       
+                    </div>
+                
+                <div class="sidebar-widget">
+                    <h3>📚 Навігація</h3>
+                    <ul class="nav-list">
+                        <li><a href="{% url 'posts:article_list' %}">Головна</a></li>
+                        <li><a href="/admin/">Панель адміністратора</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3>ℹ️ Про проект</h3>
+                    <p>Цей блог створено з використанням Django framework в рамках практичної роботи з DevOps.</p>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
