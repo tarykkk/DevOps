@@ -26,6 +26,7 @@
  Посилання на виконану роботу:  
  https://github.com/tarykkk/DevOps/tree/main/project
 
+
 ### [Самостійна робота №3 — CLI Tools](https://github.com/tarykkk/DevOps/tree/main/cli-tools-project/README.md)
 
 **Реалізовано:**
@@ -38,3 +39,21 @@
 
 Посилання на виконану роботу:  
 https://github.com/tarykkk/DevOps/tree/main/cli-tools-project
+
+
+### [Самостійна робота №7 — Notes Application (Docker + Flask + PostgreSQL)](https://github.com/tarykkk/DevOps/tree/main/notes-application-project)
+
+Контейнеризований вебзастосунок для керування нотатками, реалізований з використанням **Flask**, **PostgreSQL**, **Docker** та **Docker Compose**.
+
+**Реалізовано:**
+- RESTful API для створення та отримання нотаток  
+- Flask-вебзастосунок з HTML-інтерфейсом  
+- PostgreSQL база даних з постійним збереженням даних (volumes)  
+- Автоматична ініціалізація бази даних через SQL-скрипт  
+- Health check endpoint для перевірки стану сервісу  
+- Використання Dockerfile та docker-compose.yml  
+- Налаштування змінних середовища через `.env`  
+- Скрипти для ініціалізації та перевірки бази даних  
+
+Посилання на виконану роботу:  
+https://github.com/tarykkk/DevOps/tree/main/notes-application-project
