@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .feeds import RecentArticlesFeed
 
 app_name = 'posts'
 
@@ -13,4 +14,5 @@ urlpatterns = [
     ),
     path('share/<int:article_id>/', views.share_article_view, name='share_article'),
     path('feedback/<int:article_id>/', views.submit_feedback_view, name='submit_feedback'),
+    path('rss/', RecentArticlesFeed(), name='article_feed'),
 ]
