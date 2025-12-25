@@ -1,0 +1,344 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f7fa;
+    line-height: 1.7;
+    color: #2d3748;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+    width: 350px;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+}
+
+/* Typography */
+h1 {
+    font-size: 2.5rem;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #2d3748;
+    margin: 2rem 0 1rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 1.5rem 0 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+/* Articles */
+.article-preview {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.article-title a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.article-title a:hover {
+    color: #764ba2;
+}
+
+.article-meta {
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.article-tags {
+    margin-bottom: 0.5rem;
+}
+
+.tag-link {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #edf2f7;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.tag-link:hover {
+    background-color: #667eea;
+    color: #ffffff;
+}
+
+.article-excerpt {
+    margin-top: 1rem;
+    line-height: 1.8;
+}
+
+/* Sidebar */
+.sidebar-section {
+    margin-bottom: 2rem;
+}
+
+.sidebar-section h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+}
+
+.article-links {
+    list-style: none;
+}
+
+.article-links li {
+    margin: 0.75rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.article-links li:before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: #ffd700;
+    font-size: 0.8rem;
+}
+
+.article-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.article-links a:hover {
+    color: #ffd700;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #667eea;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.btn:hover {
+    background-color: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary {
+    background-color: #cbd5e0;
+    color: #2d3748;
+}
+
+.btn-secondary:hover {
+    background-color: #a0aec0;
+}
+
+.btn-primary {
+    background-color: #48bb78;
+}
+
+.btn-primary:hover {
+    background-color: #38a169;
+}
+
+/* Forms */
+form {
+    margin: 2rem 0;
+}
+
+form p {
+    margin: 1.5rem 0;
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2d3748;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Feedbacks */
+.feedback-item {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background-color: #f7fafc;
+    border-left: 4px solid #667eea;
+    border-radius: 6px;
+}
+
+.feedback-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+.feedback-date {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+/* Related articles */
+.related-articles {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: #f7fafc;
+    border-radius: 8px;
+}
+
+.related-item {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: #ffffff;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+.related-item:hover {
+    transform: translateX(5px);
+}
+
+.related-item a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Pagination */
+.pagination {
+    margin: 3rem 0;
+    padding: 2rem 0;
+    border-top: 2px solid #e2e8f0;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-link {
+    padding: 0.75rem 1.5rem;
+    background-color: #667eea;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.pagination-link:hover {
+    background-color: #764ba2;
+}
+
+.pagination-info {
+    font-weight: 600;
+    color: #4a5568;
+}
+
+/* Messages */
+.success-message {
+    padding: 2rem;
+    background-color: #c6f6d5;
+    border: 2px solid #48bb78;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.error-message {
+    padding: 2rem;
+    background-color: #fed7d7;
+    border: 2px solid #f56565;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.no-content {
+    color: #a0aec0;
+    font-style: italic;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .main-content,
+    .sidebar {
+        width: 100%;
+    }
+    
+    .sidebar {
+        min-height: auto;
+    }
+}
