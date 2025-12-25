@@ -1,0 +1,48 @@
+{% extends "posts/base.html" %}
+{% load post_extras %}
+
+{% block page_title %}Головна{% endblock %}
+
+{% block main_content %}
+<header class="page-header">
+    <h1>BlogSite</h1>
+    {% if selected_tag %}
+        <h2 class="tag-filter">Статті з тегом "{{ selected_tag.name }}"</h2>
+    {% endif %}
+</header>
+
+<div class="articles-container">
+    {% for article in articles %}
+        <article class="article-preview">
+            <h2 class="article-title">
+                <a href="{{ article.get_absolute_url }}">
+                    {{ article.title }}
+                </a>
+            </h2>
+            
+            <div class="article-meta">
+                <p class="article-tags">
+                    Теги:
+                    {% for tag in article.tags.all %}
+                        <a href="{% url 'posts:articles_by_tag' tag.slug %}" class="tag-link">
+                            {{ tag.name }}
+                        </a>
+                        {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                
+                <p class="article-date">
+                    Опубліковано {{ article.published_at|date:"d F Y" }} 
+                    автором {{ article.author }}
+                </p>
+            </div>
+            
+            <div class="article-excerpt">
+                {{ article.content|render_markdown|truncatewords_html:30 }}
+            </div>
+        </article>
+    {% endfor %}
+</div>
+
+{% include "posts/components/pagination.html" with page_obj=articles %}
+{% endblock %}
