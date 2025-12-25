@@ -1,0 +1,80 @@
+{% extends "posts/base.html" %}
+{% load post_extras %}
+
+{% block page_title %}{{ article.title }}{% endblock %}
+
+{% block main_content %}
+<article class="article-full">
+    <header class="article-header">
+        <h1>{{ article.title }}</h1>
+        
+        <div class="article-meta">
+            <p class="article-tags">
+                Теги: {{ article.tags.all|join:", " }}
+            </p>
+            <p class="article-date">
+                Опубліковано {{ article.published_at|date:"d F Y" }} 
+                автором {{ article.author }}
+            </p>
+        </div>
+    </header>
+    
+    <div class="article-body">
+        {{ article.content|render_markdown }}
+    </div>
+    
+    <footer class="article-footer">
+        <a href="{% url 'posts:share_article' article.id %}" class="btn">
+            📧 Поділитися статтею
+        </a>
+        <a href="{% url 'posts:article_list' %}" class="btn btn-secondary">
+            ← Повернутися до списку
+        </a>
+    </footer>
+</article>
+
+{% if related_articles %}
+<section class="related-articles">
+    <h2>Схожі публікації</h2>
+    <div class="related-list">
+        {% for related in related_articles %}
+            <div class="related-item">
+                <a href="{{ related.get_absolute_url }}">
+                    {{ related.title }}
+                </a>
+            </div>
+        {% empty %}
+            <p class="no-content">Схожих статей не знайдено.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="feedbacks-section">
+    <h2>
+        Відгуки ({{ feedbacks.count }})
+    </h2>
+    
+    <div class="feedbacks-list">
+        {% for feedback in feedbacks %}
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <strong>{{ feedback.author_name }}</strong>
+                    <span class="feedback-date">
+                        {{ feedback.created_at|date:"d F Y, H:i" }}
+                    </span>
+                </div>
+                <div class="feedback-body">
+                    {{ feedback.content|linebreaks }}
+                </div>
+            </div>
+        {% empty %}
+            <p class="no-content">Поки що немає відгуків.</p>
+        {% endfor %}
+    </div>
+    
+    <div class="feedback-form-container">
+        {% include "posts/components/feedback_form.html" %}
+    </div>
+</section>
+{% endblock %}
