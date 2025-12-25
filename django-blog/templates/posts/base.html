@@ -1,0 +1,57 @@
+{% load static %}
+{% load post_extras %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Персональний блог про веб-розробку">
+    <title>{% block page_title %}{% endblock %} | BlogSite</title>
+    <link href="{% static 'styles/main.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            {% block main_content %}{% endblock %}
+        </main>
+        
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h2>BlogSite</h2>
+                <p>
+                    Вітаємо на нашому блозі!<br>
+                    Опубліковано {% count_published_articles %} статей.
+                </p>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Останні публікації</h3>
+                {% display_recent_articles 3 %}
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Популярні статті</h3>
+                {% fetch_popular_articles as top_articles %}
+                <ul class="article-links">
+                    {% for article in top_articles %}
+                        <li>
+                            <a href="{{ article.get_absolute_url }}">
+                                {{ article.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Навігація</h3>
+                <ul class="article-links">
+                    <li><a href="{% url 'posts:article_list' %}">Всі статті</a></li>
+                    <li><a href="/admin/">Панель адміністратора</a></li>
+                    <li><a href="{% url 'posts:article_feed' %}">RSS стрічка</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
