@@ -1,0 +1,8 @@
+<div class="form-wrapper">
+    <h3>Залишити відгук</h3>
+    <form action="{% url 'posts:submit_feedback' article.id %}" method="post" class="feedback-form">
+        {% csrf_token %}
+        {{ feedback_form.as_p }}
+        <button type="submit" class="btn btn-primary">Відправити відгук</button>
+    </form>
+</div>

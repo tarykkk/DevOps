@@ -1,0 +1,27 @@
+{% extends "posts/base.html" %}
+
+{% block page_title %}Поділитися статтею{% endblock %}
+
+{% block main_content %}
+<div class="share-container">
+    {% if email_sent %}
+        <div class="success-message">
+            <h1>Email успішно відправлено!</h1>
+            <p>
+                Статтю "{{ article.title }}" було успішно надіслано на 
+                {{ form.cleaned_data.recipient_email }}.
+            </p>
+            <a href="{{ article.get_absolute_url }}" class="btn">
+                Повернутися до статті
+            </a>
+        </div>
+    {% else %}
+        <h1>Поділіться статтею "{{ article.title }}"</h1>
+        <form method="post" class="share-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Надіслати email</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}
