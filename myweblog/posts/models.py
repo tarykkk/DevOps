@@ -39,6 +39,7 @@ class Article(models.Model):
     )
     
     # Managers
+    objects = models.Manager()
     everything = models.Manager()
     active = ActiveManager()
     
