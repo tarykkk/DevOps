@@ -9,26 +9,19 @@ LABEL description="Notes application with PostgreSQL"
 WORKDIR /application
 
 # Install system dependencies
-RUN apt-get update && \\
-    apt-get install -y --no-install-recommends \\
-    gcc \\
-    postgresql-client && \\
-    apt-get clean && \\
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends gcc postgresql-client && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first (for better caching)
 COPY requirements.txt .
 
 # Install Python dependencies
-RUN pip install --no-cache-dir --upgrade pip && \\
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Copy application source code
 COPY src/ ./src/
 
 # Create non-root user for security
-RUN useradd -m -u 1000 appuser && \\
-    chown -R appuser:appuser /application
+RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /application
 
 USER appuser
 
